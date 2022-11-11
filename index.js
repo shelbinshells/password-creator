@@ -3,21 +3,26 @@ const characters =   ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L
 ];
 
 
-let passwordLength = 12
+let passwordLength = 15
+let generatedPasswordOneEl = document.getElementById("generatepasswordone")
+let generatedPasswordTwoEl = document.getElementById("generatepasswordtwo")
+
 
 function getRandomCharacter() {
     let randomChar = Math.floor(Math.random() * characters.length)
     return characters[randomChar]
 }
 
+function generatePassword() {
+    generatedPasswordOneEl.textContent = generateRandomPassword()
+    generatedPasswordTwoEl.textContent = generateRandomPassword()
+    generateRandomPassword()
+}
+
 function generateRandomPassword() {
     let randomPassword = ""
-    for (let i = 0; i < passwordLength; i++) {
+    for (let i = 0; i <= passwordLength; i++) {
         randomPassword += getRandomCharacter()
     }
     return randomPassword
 }
-
-const generatedPasswordOne = generateRandomPassword()
-
-console.log("Here is a random password: ", generatedPasswordOne)
